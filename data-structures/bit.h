@@ -21,8 +21,8 @@ struct bit{
         return get(r+1) - get(l);
     }
     T lower_bound(T x) {
-        int ind = 0;
-        for(int pw=1<<25;pw>0;pw>>=1) if(ind+pw<=n && sum+v[ind+pw]<x) ind = ind +  pw, x -= v[ind+pw];
+        int ind = 0, sum = T();
+        for(int pw=1<<25;pw>0;pw>>=1) if(ind+pw<=n && sum + v[ind+pw]<x) ind = ind +  pw, sum += v[ind+pw];
         return ind;
     }
 };
