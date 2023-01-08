@@ -10,15 +10,15 @@ struct bit{
     int n;
     vector<T> v;
     bit(int n): n(n) {v.resize(n+1);}
-    add(int ind, T val) {
-        ind++; for(;ind<n;ind+=ind&-ind) v[ind] += val;
+    void add(int ind, T val) {
+        ind++; for(;ind<=n;ind+=ind&(-ind)) v[ind] += val;
     }
     T get(int ind) {
         ind++; T ans = T(); 
-        for(;ind>0;ind-=ind&-ind) ans += v[ind]; return ans; 
+        for(;ind>0;ind-=ind&(-ind)) ans += v[ind]; return ans; 
     }
     T get(int l, int r) {
-        return get(r+1) - get(l);
+        return get(r) - get(l-1);
     }
     T lower_bound(T x) {
         int ind = 0, sum = T();
