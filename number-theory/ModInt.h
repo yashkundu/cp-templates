@@ -1,4 +1,4 @@
-using ll = long long;
+
 
 template<int MOD> struct mint {
     static const int mod = MOD;
@@ -11,18 +11,18 @@ template<int MOD> struct mint {
     }
     bool operator==(const mint& o) const{ return (v==o.v);}
     friend bool operator!=(const mint& a, const mint& b) {return !(a==b);}
-    friend bool operator<(const mint &a, const mint& b) {return a.v<b.v;}
-    friend bool operator>(const mint& a, const mint& b) {return a.v>b.v};
-    friend bool operator<=(const mint &a, const mint& b) {return a.v<=b.v;}
-    friend bool operator>=(const mint& a, const mint& b) {return a.v>=b.v};
+    friend bool operator<(const mint& a, const mint& b) {return a.v<b.v;}
+    friend bool operator>(const mint& a, const mint& b) {return a.v>b.v;}
+    friend bool operator<=(const mint& a, const mint& b) {return a.v<=b.v;}
+    friend bool operator>=(const mint& a, const mint& b) {return a.v>=b.v;}
 
     friend mint operator+(mint a, const mint& b) {return a += b;}
     friend mint operator-(mint a, const mint& b) {return a -= b;}
     friend mint operator*(mint a, const mint& b) {return a *= b;}
     friend mint operator/(mint a, const mint& b) {return a /= b;}
 
-    mint& operator+=(const mint& o) {if((v+o.v)>=MOD) v -= MOD; return *this;}
-    mint& operator-=(const mint& o) {if((v-o.v)<0) v += MOD; return *this;}
+    mint& operator+=(const mint& o) {if((v+=o.v)>=MOD) v -= MOD; return *this;}
+    mint& operator-=(const mint& o) {if((v-=o.v)<0) v += MOD; return *this;}
     mint& operator*=(const mint& o) {v = int((ll)v*o.v%MOD); return *this;}
     mint& operator/=(const mint& o) {return (*this) *= inv(o);}
 
@@ -35,14 +35,13 @@ template<int MOD> struct mint {
 
     mint operator-() {return mint(-v);}
     mint& operator++() {return *this += 1;}
-    mint& operator--() (return *this -= 1;)
+    mint& operator--() {return *this -= 1;}
+
+    friend istream& operator>>(istream& in, const mint& o) {
+        ll x; in >> x; o.v = int(mint(x)); return in;
+    }
+    friend ostream& operator<<(ostream& out, const mint& o) {
+        out << o.v; return out;
+    }
 };
-
-using mi = mint<107>;
-
-int main() {
-    mi a = 5;
-    a - 2;
-    a += 2;
-}
 
