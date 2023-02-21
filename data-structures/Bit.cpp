@@ -1,15 +1,15 @@
 /**
-*    author:  lazyhash(yashkundu)
-*    created: 08 Jan,2023
-*    description: compute partial sums (a[0]+a[1]... + a[k-1]) and does point updates a[i]
-*    time: add, get takes O(logn)
+*   author:  lazyhash(yashkundu)
+*   created: 08 Jan,2023
+*   description: compute partial sums (a[0]+a[1]... + a[k-1]) and does point updates a[i]
+*   time: add, get takes O(logn)
 **/
 
 template<typename T>
 struct bit{
     int n;
     vector<T> v;
-    bit(int n): n(n) {v.resize(n+1);}
+    bit(int n): n(n) {v.resize(n+1);}ß
     void add(int ind, T val) {
         ind++; for(;ind<=n;ind+=ind&(-ind)) v[ind] += val;
     }

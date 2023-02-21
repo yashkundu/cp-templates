@@ -1,9 +1,9 @@
 /**
-*    author:  lazyhash(yashkundu)
-*    created: 29 Jan, 2023 | 13:35:32
-*    https://judge.yosupo.jp/submission/123419
-*    https://cp-algorithms.com/string/suffix-array.html#on-log-n-approach
-*    sufArray - O(n*logn), lcp - O(n) (n - length of string)
+*   author:  lazyhash(yashkundu)
+*   created: 29 Jan, 2023 | 13:35:32
+*   https://judge.yosupo.jp/submission/123419
+*   https://cp-algorithms.com/string/suffix-array.html#on-log-n-approach
+*   sufArray - O(n*logn), lcp - O(n) (n - length of string)
 **/
 #include <iostream>
 #include <vector>
